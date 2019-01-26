@@ -12,6 +12,7 @@ type Redis struct {
 	Address  string `sm:"#.(.).address"`
 	PoolSize int    `sm:"#.(.).poolSize"`
 	Password string `sm:"#.(.).password"`
+	DB       int    `sm:"#.(.).db"`
 	client   *Client
 }
 
@@ -20,6 +21,7 @@ func (rp *Redis) Init() {
 		Addr:     rp.Address,
 		PoolSize: rp.PoolSize,
 		Password: rp.Password,
+		DB:       rp.DB,
 	})
 }
 func (rp *Redis) Provide() interface{} {
